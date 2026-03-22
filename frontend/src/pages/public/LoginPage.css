@@ -1,0 +1,102 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.auth-container {
+  max-width: 440px;
+  width: 100%;
+}
+.auth-container .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.auth-container .subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.auth-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+.auth-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.auth-footer a {
+  color: var(--accent);
+}
+
+/* Password strength */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.strength-bar {
+  display: flex;
+  gap: 3px;
+  flex: 1;
+}
+.strength-segment {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.password-checks {
+  list-style: none;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.password-checks li {
+  color: var(--red);
+  padding: 0.1rem 0;
+}
+.password-checks li.met {
+  color: var(--green);
+}
+.check-icon {
+  margin-right: 0.4rem;
+}
+.field-error {
+  color: var(--red);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+.field-success {
+  color: var(--green);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+.input-error {
+  border-color: var(--red) !important;
+}
+.input-success {
+  border-color: var(--green) !important;
+}

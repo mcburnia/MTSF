@@ -1,0 +1,73 @@
+import { useState, useEffect } from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import Sidebar from '../components/Sidebar';
+import { Menu, X, Loader } from 'lucide-react';
+import BillingBanner from '../components/BillingBanner';
+import './AuthenticatedLayout.css';
+
+export default function AuthenticatedLayout() {
+  const { user, loading } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [orgName, setOrgName] = useState('');
+
+  useEffect(() => {
+    if (user?.orgId) {
+      fetchOrgName();
+    }
+  }, [user?.orgId]);
+
+  async function fetchOrgName() {
+    try {
+      const token = localStorage.getItem('session_token');
+      const res = await fetch('/api/org', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setOrgName(data.name);
+      }
+    } catch {
+      // Silently fail – org name is cosmetic
+    }
+  }
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+        <Loader size={32} color="var(--accent)" style={{ animation: 'spin 1s linear infinite' }} />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!user.orgId) {
+    return <Navigate to="/setup/org" replace />;
+  }
+
+  return (
+    <div className="app-layout">
+      <div className="mobile-topbar">
+        <div className="topbar-logo">MTSF</div>
+        <button
+          className="hamburger-btn"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label="Toggle navigation"
+        >
+          {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+      <div className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`} onClick={() => setSidebarOpen(false)} />
+      <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+        <Sidebar onNavigate={() => setSidebarOpen(false)} orgName={orgName} />
+      </aside>
+      <main className="main">
+        <BillingBanner />
+        <Outlet />
+      </main>
+    </div>
+  );
+}

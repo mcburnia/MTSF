@@ -1,0 +1,95 @@
+import { useState } from 'react';
+import { Outlet, Navigate, NavLink, Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import {
+  LayoutDashboard, Building2, Users, CreditCard,
+  ArrowLeft, Menu, X, Loader, Shield
+} from 'lucide-react';
+import './AdminLayout.css';
+
+const adminNavSections = [
+  {
+    label: 'Overview',
+    items: [
+      { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    ],
+  },
+  {
+    label: 'Management',
+    items: [
+      { to: '/admin/orgs', icon: Building2, label: 'Organisations' },
+      { to: '/admin/users', icon: Users, label: 'Users' },
+    ],
+  },
+  {
+    label: 'Billing',
+    items: [
+      { to: '/admin/billing', icon: CreditCard, label: 'Billing' },
+    ],
+  },
+];
+
+export default function AdminLayout() {
+  const { user, loading } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+        <Loader size={32} color="var(--accent)" style={{ animation: 'spin 1s linear infinite' }} />
+      </div>
+    );
+  }
+
+  if (!user) return <Navigate to="/login" replace />;
+  if (!user.isPlatformAdmin) return <Navigate to="/dashboard" replace />;
+
+  return (
+    <div className="app-layout admin-layout">
+      <div className="mobile-topbar admin-topbar">
+        <div className="topbar-logo admin-topbar-logo">
+          <Shield size={18} /><span>Admin</span>
+        </div>
+        <button className="hamburger-btn" onClick={() => setSidebarOpen(!sidebarOpen)} aria-label="Toggle navigation">
+          {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+      <div className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`} onClick={() => setSidebarOpen(false)} />
+      <aside className={`sidebar admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
+        <Link to="/" className="sidebar-logo admin-logo" style={{ textDecoration: 'none' }}>
+          <Shield size={16} className="admin-shield" /><span>Admin</span>
+        </Link>
+        <div className="sidebar-org admin-badge">Platform Admin</div>
+        {adminNavSections.map((section) => (
+          <div className="nav-section" key={section.label}>
+            <div className="nav-section-label">{section.label}</div>
+            {section.items.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <item.icon size={18} className="nav-icon" />
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        ))}
+        <div className="sidebar-footer">
+          <button
+            className="nav-item back-to-app-btn"
+            onClick={() => { setSidebarOpen(false); navigate('/dashboard'); }}
+          >
+            <ArrowLeft size={18} className="nav-icon" />
+            Back to App
+          </button>
+        </div>
+      </aside>
+      <main className="main">
+        <Outlet />
+      </main>
+    </div>
+  );
+}
