@@ -99,6 +99,19 @@ To add a new domain entity:
 | Backend (test) | 3011 |
 | Postgres | 5433 |
 
+## Documentation
+
+| Document | Path | Purpose |
+|----------|------|---------|
+| [README](README.md) | `README.md` | Project overview, quick start |
+| [Adoption Guide](docs/ADOPTION-GUIDE.md) | `docs/ADOPTION-GUIDE.md` | Full setup walkthrough, env var reference |
+| [White-Label Guide](docs/WHITE-LABEL-GUIDE.md) | `docs/WHITE-LABEL-GUIDE.md` | Branding and customisation |
+| [Architecture](docs/ARCHITECTURE.md) | `docs/ARCHITECTURE.md` | System design, schema, auth flow, billing states |
+| [Extending Guide](docs/EXTENDING-GUIDE.md) | `docs/EXTENDING-GUIDE.md` | Adding domain entities, features, pages |
+| [Deployment Guide](docs/DEPLOYMENT-GUIDE.md) | `docs/DEPLOYMENT-GUIDE.md` | Production setup, HTTPS, backups, security |
+| [API Reference](docs/API-REFERENCE.md) | `docs/API-REFERENCE.md` | Every endpoint, request/response format |
+| [Getting Started](docs/GETTING-STARTED.md) | `docs/GETTING-STARTED.md` | Condensed quick start |
+
 ## Environment Notes
 
 - **Node.js:** Use nvm — prefix with `source ~/.nvm/nvm.sh &&`
