@@ -1,0 +1,43 @@
+MTSF (Multi-Tenant SaaS Framework) Licence
+Copyright (c) 2026 Andi McBurnie. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person or organisation
+obtaining a copy of this software and associated documentation files (the
+"Software"), to use, copy, modify, merge, publish, distribute, sublicence,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+1. ATTRIBUTION
+
+   Any product, application, or service built using the Software must include
+   the following credit in at least one of: user-facing documentation, an
+   "About" page, a README file, or a credits/acknowledgements section:
+
+       "Built with MTSF (https://github.com/mcburnia/MTSF) by Andi McBurnie"
+
+   This attribution must be reasonably visible and not hidden, obscured, or
+   rendered unreadable. Attribution in source code comments alone is not
+   sufficient.
+
+2. CONTRIBUTION BACK
+
+   If you discover a bug in the Software, or develop a fix, patch, or
+   improvement to the framework's core infrastructure (authentication,
+   billing, multi-tenancy, middleware, security utilities, or database
+   schema), you are required to submit the fix or improvement back to the
+   original repository via pull request or issue report within a reasonable
+   timeframe.
+
+   This requirement applies to changes to the framework infrastructure only.
+   Domain-specific code, business logic, and custom extensions built on top
+   of the Software are yours to keep and are not subject to this clause.
+
+3. NO WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.

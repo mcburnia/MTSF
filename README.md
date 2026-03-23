@@ -91,4 +91,9 @@ MTSF/
 
 ## Licence
 
-MIT — use it, fork it, brand it, ship it.
+Custom open licence — free to use, with two conditions:
+
+1. **Attribution** — credit MTSF in your product's documentation or about page
+2. **Contribution back** — submit bug fixes and framework improvements back via pull request
+
+See [LICENCE](LICENCE) for the full text.
