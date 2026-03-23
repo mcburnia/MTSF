@@ -97,3 +97,11 @@ Custom open licence — free to use, with two conditions:
 2. **Contribution back** — submit bug fixes and framework improvements back via pull request
 
 See [LICENCE](LICENCE) for the full text.
+
+## Contact
+
+For questions, support, or contribution enquiries:
+
+- **Email:** info@lomancavendish.com
+- **Company:** Loman Cavendish Limited (UK Company No. 06335037)
+- **GitHub:** https://github.com/mcburnia/MTSF
