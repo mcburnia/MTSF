@@ -1,4 +1,11 @@
 /**
+ * MTSF — Multi-Tenant SaaS Framework
+ * Copyright (c) 2026 Loman Cavendish Limited (UK Company No. 06335037)
+ * All rights reserved.
+ *
+ * Licensed under the MTSF Licence. See LICENCE file in the project root.
+ */
+/**
  * Example CRUD entity: Items
  *
  * This is a sample route demonstrating the standard MTSF pattern for

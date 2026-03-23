@@ -1,4 +1,11 @@
 /**
+ * MTSF — Multi-Tenant SaaS Framework
+ * Copyright (c) 2026 Loman Cavendish Limited (UK Company No. 06335037)
+ * All rights reserved.
+ *
+ * Licensed under the MTSF Licence. See LICENCE file in the project root.
+ */
+/**
  * AES-256-GCM Encryption with versioned key derivation.
  *
  * Format: v2:iv:tag:ciphertext (all hex-encoded)
